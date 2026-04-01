@@ -1,294 +1,325 @@
-<!DOCTYPE HTML>
-<html>
-	<!-- Head -->
-	<head>
-		<title>NEXT-CONNECT SAS - Desarrollo de software</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	</head>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Next Connect</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
-	<body>
-		<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '753145479376292',
-      xfbml      : true,
-      version    : 'v14.0'
+  <style>
+    :root {
+      --gold: #EAC54F;
+      --orange: #F68B45;
+      --dark: #000000;
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 9999px;
+      filter: blur(100px);
+      opacity: 0.25;
+      animation: float 14s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%,100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-60px) scale(1.1); }
+    }
+
+    .spotlight {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(234,197,79,0.15), transparent 60%);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+    }
+
+    .card-hover {
+      transition: all 0.4s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 80px rgba(234,197,79,0.2);
+    }
+  </style>
+
+  <!-- SEO Básico -->
+  <title>Next Connect | Desarrollo de Software, SaaS y Automatización en Ecuador</title>
+
+  <meta name="description" content="Desarrollamos software a medida, plataformas SaaS y sistemas que generan ingresos. Agencia tecnológica en Quito, Ecuador enfocada en crecimiento y automatización empresarial.">
+
+  <meta name="keywords" content="desarrollo de software Ecuador, SaaS Ecuador, agencia tecnológica Quito, desarrollo web, automatización de procesos, SEO Ecuador, sistemas a medida">
+
+  <meta name="author" content="Next Connect">
+  <meta name="robots" content="index, follow">
+
+  <!-- Responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Open Graph (Facebook / WhatsApp) -->
+  <meta property="og:title" content="Next Connect | Software que genera ingresos">
+  <meta property="og:description" content="Creamos plataformas, SaaS y sistemas diseñados para escalar negocios.">
+  <meta property="og:image" content="images/icon1.png">
+  <meta property="og:url" content="https://nx-connect.com">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Next Connect | Software que genera ingresos">
+  <meta name="twitter:description" content="Desarrollo de software, SaaS y automatización empresarial.">
+  <meta name="twitter:image" content="images/icon1.png">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://nx-connect.com">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico">
+
+  <!-- Datos estructurados (Google Rich Results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Next Connect",
+    "url": "https://nx-connect.com",
+    "logo": "https://nx-connect.com/logo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+593995844878",
+      "contactType": "customer service"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Quito",
+      "addressRegion": "Pichincha",
+      "addressCountry": "EC"
+    }
+  }
+  </script>
+</head>
+
+<body class="bg-[#0B0B0B] text-[#EAEAEA] font-sans">
+
+<header class="w-full px-6 py-4 flex justify-between items-center border-b border-gray-800 sticky top-0 bg-black/80 backdrop-blur z-50">
+  <div class="flex items-center gap-3">
+    <img src="images/icon1.png" class="h-8">
+    <span class="font-semibold">Next Connect</span>
+  </div>
+
+  <nav class="hidden md:flex gap-8 text-sm text-gray-300">
+    <a href="#servicios" class="hover:text-[#EAC54F]">Servicios</a>
+    <a href="#casos" class="hover:text-[#EAC54F]">Casos</a>
+    <a href="#testimonios" class="hover:text-[#EAC54F]">Testimonios</a>
+    <a href="#contacto" class="hover:text-[#EAC54F]">Contacto</a>
+  </nav>
+
+  <a href="https://wa.me/5930995844878" class="hidden md:block bg-[#EAC54F] text-black px-5 py-2 rounded-full text-sm font-semibold hover:scale-105 transition">
+    WhatsApp
+  </a>
+</header>
+
+<section id="hero" class="relative min-h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden">
+
+  <div id="spotlight" class="spotlight"></div>
+
+  <div class="blob w-96 h-96 bg-[#EAC54F] top-20 left-10"></div>
+  <div class="blob w-96 h-96 bg-[#F68B45] bottom-10 right-10"></div>
+  <div class="blob w-72 h-72 bg-[#EAC54F] top-40 right-1/3"></div>
+
+  <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(#ffffff10 1px, transparent 1px), linear-gradient(to right, #ffffff10 1px, transparent 1px); background-size: 40px 40px;"></div>
+
+  <div class="relative z-10 max-w-2xl mx-auto" data-aos="fade-up">
+    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+      Convierte tu idea en <span class="text-[#EAC54F]">software rentable</span>
+    </h1>
+    <p class="text-lg text-gray-400 mb-8">
+      Desarrollamos plataformas, SaaS y sistemas que generan ingresos y escalan negocios.
+    </p>
+
+    <div class="flex gap-4 justify-center">
+      <a href="mailto:soporte@nx-connect.com" class="bg-[#EAC54F] text-black px-8 py-3 rounded-full font-semibold hover:scale-105 transition">
+        Solicitar asesoría
+      </a>
+      <a href="https://wa.me/5930995844878" class="border border-gray-700 px-8 py-3 rounded-full hover:border-[#EAC54F] transition">
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="servicios" class="py-20 px-6 bg-[#111111]">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-3xl font-semibold mb-12" data-aos="fade-up">Servicios</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <div class="p-8 border border-gray-800 rounded-2xl card-hover text-left" data-aos="fade-up">
+        <div class="text-3xl mb-4">⚙️</div>
+        <h3 class="text-xl font-semibold mb-3">Software a Medida</h3>
+        <p class="text-gray-400 text-sm mb-4">Desarrollamos sistemas personalizados adaptados a tu modelo de negocio.</p>
+        <ul class="text-sm text-gray-400 space-y-2">
+          <li>✔ SaaS y plataformas escalables</li>
+          <li>✔ APIs y automatización de procesos</li>
+          <li>✔ Integraciones con terceros</li>
+          <li>✔ Arquitectura lista para crecimiento</li>
+        </ul>
+      </div>
+
+      <div class="p-8 border border-gray-800 rounded-2xl card-hover text-left" data-aos="fade-up" data-aos-delay="100">
+        <div class="text-3xl mb-4">🚀</div>
+        <h3 class="text-xl font-semibold mb-3">Landing Pages</h3>
+        <p class="text-gray-400 text-sm mb-4">Creamos páginas optimizadas para convertir visitantes en clientes.</p>
+        <ul class="text-sm text-gray-400 space-y-2">
+          <li>✔ Diseño moderno tipo SaaS</li>
+          <li>✔ Copy persuasivo enfocado en ventas</li>
+          <li>✔ Alta velocidad y SEO técnico</li>
+          <li>✔ Integración con CRM y analytics</li>
+        </ul>
+      </div>
+
+      <div class="p-8 border border-gray-800 rounded-2xl card-hover text-left" data-aos="fade-up" data-aos-delay="200">
+        <div class="text-3xl mb-4">📈</div>
+        <h3 class="text-xl font-semibold mb-3">SEO</h3>
+        <p class="text-gray-400 text-sm mb-4">Posicionamos tu negocio en Google para generar tráfico y ventas constantes.</p>
+        <ul class="text-sm text-gray-400 space-y-2">
+          <li>✔ Auditoría SEO completa</li>
+          <li>✔ Optimización On-Page</li>
+          <li>✔ Estrategia de contenido</li>
+          <li>✔ Crecimiento orgánico sostenible</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CASOS DE ÉXITO -->
+<section id="casos" class="py-20 px-6 bg-[#0D0D0D]">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-3xl font-semibold mb-12" data-aos="fade-up">Casos de éxito</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="p-6 border border-gray-800 rounded-xl card-hover" data-aos="fade-up">
+        <h3 class="font-semibold text-[#EAC54F]">Medio Digital</h3>
+        <p class="text-gray-400 text-sm">Desarrollamos una plataforma de noticias digital escalable para El Chulla News, optimizada para alto tráfico, contenido dinámico y posicionamiento SEO, permitiendo la publicación continua de noticias y el crecimiento de audiencia en múltiples categorías.</p>
+        <a href="https://elchulla.com/" target="_blank" class="hidden md:block bg-[#EAC54F] mt-4 text-black px-5 py-2 rounded-full text-sm font-semibold hover:scale-105 transition">
+          El Chulla News
+        </a>
+      </div>
+      <div class="p-6 border border-gray-800 rounded-xl card-hover" data-aos="fade-up" data-aos-delay="100">
+        <h3 class="font-semibold text-[#EAC54F]">Plataforma SaaS</h3>
+        <p class="text-gray-400 text-sm">RedSkiller es una plataforma SaaS diseñada para conectar profesionales con empresas, optimizando el proceso de reclutamiento mediante perfiles inteligentes, filtrado avanzado, reduciendo tiempos de contratación y mejorando la calidad del talento seleccionado.</p>
+        <a href="https://redskiller.com/" target="_blank" class="hidden md:block bg-[#EAC54F] mt-4 text-black px-5 py-2 rounded-full text-sm font-semibold hover:scale-105 transition">
+          RedSkiller
+        </a>
+      </div>
+      <div class="p-6 border border-gray-800 rounded-xl card-hover" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="font-semibold text-[#EAC54F]">Ecua-american</h3>
+        <p class="text-gray-400 text-sm">Implementamos una plataforma web para la gestión y consulta de resultados de laboratorio en Ecua American, permitiendo acceso inmediato a exámenes clínicos, reduciendo tiempos de entrega y mejorando la eficiencia operativa mediante procesos digitalizados</p>
+        <a href="https://ecua-american.com/" target="_blank" class="hidden md:block bg-[#EAC54F] mt-4 text-black px-5 py-2 rounded-full text-sm font-semibold hover:scale-105 transition">
+          Ecua-american
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section id="testimonios" class="py-20 px-6">
+  <div class="max-w-5xl mx-auto text-center">
+    <h2 class="text-3xl font-semibold mb-12" data-aos="fade-up">Lo que dicen nuestros clientes</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="p-6 border border-gray-800 rounded-xl card-hover" data-aos="fade-up">
+        <p class="text-gray-400">"Nos ayudaron a automatizar todo nuestro negocio."</p>
+        <span class="block mt-4 text-[#EAC54F]">— CEO Startup</span>
+      </div>
+      <div class="p-6 border border-gray-800 rounded-xl card-hover" data-aos="fade-up" data-aos-delay="100">
+        <p class="text-gray-400">"El ROI fue inmediato."</p>
+        <span class="block mt-4 text-[#EAC54F]">— Ecommerce</span>
+      </div>
+      <div class="p-6 border border-gray-800 rounded-xl card-hover" data-aos="fade-up" data-aos-delay="200">
+        <p class="text-gray-400">"Equipo altamente profesional."</p>
+        <span class="block mt-4 text-[#EAC54F]">— Empresa Tech</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="py-20 px-6 text-center">
+  <h2 class="text-3xl font-semibold mb-6">Contacto</h2>
+
+  <form id="contact-form" class="max-w-xl mx-auto grid gap-4">
+    <input type="text" name="from_name" placeholder="Nombre" required class="p-3 bg-[#1A1A1A] border border-gray-700 rounded">
+    <input type="email" name="from_email" placeholder="Email" required class="p-3 bg-[#1A1A1A] border border-gray-700 rounded">
+    <textarea name="message" placeholder="Cuentanos tu idea" required class="p-3 bg-[#1A1A1A] border border-gray-700 rounded"></textarea>
+    <button type="submit" class="bg-[#EAC54F] text-black py-3 rounded-full hover:scale-105 transition">Enviar</button>
+  </form>
+
+  <p id="status" class="mt-4 text-sm text-gray-400"></p>
+</section>
+
+<script>
+AOS.init({ duration: 1000, once: true });
+(function(){ emailjs.init("PZkhapA6_77IlMiZk"); })();
+
+const form = document.getElementById("contact-form");
+const status = document.getElementById("status");
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+  status.innerText = "Enviando...";
+
+  emailjs.sendForm("service_koo9pbg", "template_ielbeti", this)
+    .then(() => {
+      status.innerText = "✅ Mensaje enviado";
+      form.reset();
+    }, () => {
+      status.innerText = "❌ Error";
     });
-    FB.AppEvents.logPageView();
-  };
+});
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
+const spotlight = document.getElementById("spotlight");
+document.addEventListener("mousemove", e => {
+  spotlight.style.left = e.clientX + "px";
+  spotlight.style.top = e.clientY + "px";
+});
 </script>
-		<!-- Sidebar -->
-			<section id="sidebar">
-				<div class="inner">
-					<nav>
-						<ul>
-							<li>
-								<div class="logo-container" style="width: 100%; text-align: center;">
-									
-										<!-- <img src="images/logo-white.png" alt="Logo Next Connect" data-position="center center" style="margin: 0 auto; width: 200px;" /> -->
-									
-								</div>
-							</li>
-							<li><a href="#intro">Inicio</a></li>
-							<li><a href="#one">Quienes somos</a></li>
-							<li><a href="#two">Que hacemos</a></li>
-							<!-- <li><a href="#three">Nuestros Clientes</a></li> -->
-							<li><a href="#four">Contactanos</a></li>
-						</ul>
-					</nav>
-				</div>
-			</section>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+<!-- FOOTER -->
+<footer class="bg-[#0A0A0A] border-t border-gray-800 py-12 px-6">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 text-sm text-gray-400">
 
-				<!-- Intro -->
-					<section id="intro" class="wrapper style1 fullscreen fade-up">
-						<div class="inner" style="text-align: center;">
-							<h1>NEXT-CONNECT SAS - Desarrollo de software</h1>
-							<p>Automatiza, organiza y  controla todos tus procesos administrativos, te ofrecesmos 
-								soluciones informáticas para ambientes corporativos, orgullosamente Ecuatorianos</p>
-							<img src="images/tecnologias.png" style="max-width: 100%;">
-							<ul class="actions">
-								<li><a href="#one" class="button scrolly">Ver mas...</a></li>
-							</ul>
-						</div>
-					</section>
+    <div>
+      <h3 class="text-white font-semibold mb-4">Next Connect</h3>
+      <p>Desarrollamos software, SaaS y plataformas digitales que generan ingresos.</p>
+      
+    </div>
 
-				<!-- One -->
-					<section id="one" class="wrapper style2 spotlights">
-						<section>
-							<a href="#" class="image" style="background-position: center; background-size: 80%; background-repeat: no-repeat; pointer-events: none;" ><img src="images/equipo_trabajo.png" alt="" data-position="center center" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Equipo de trabajo</h2>
-									<p>Contamos con un equipo de desarrolladores de software, altamente capacitado para proporcionar la mejor solución al problema o necesidad de tu empresa mediante herramientas tecnológicas de ultima generación.</p>
-									<!-- <ul class="actions">
-										<li><a href="#" class="button">Learn more</a></li>
-									</ul> -->
-								</div>
-							</div>
-						</section>
-						<section>
-							<a href="#" class="image" style="background-position: center ; background-size: 80%; background-repeat: no-repeat;pointer-events: none;"><img src="images/mision.png" alt="" data-position="top center" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Misión</h2>
-									<p>Nos apasionamos por ofrecer soluciones tecnológicas a las empresas de ecuatorianas, a través de herramientas para web impactando positivamente en sus procesos administrativos y operativos.</p>
-									<!-- <ul class="actions">
-										<li><a href="#" class="button">Learn more</a></li>
-									</ul> -->
-								</div>
-							</div>
-						</section>
-						<section>
-							<a href="#" class="image" style="background-position: center ; background-size: 80%; background-repeat: no-repeat;pointer-events: none;"><img src="images/vision.png" alt="" data-position="25% 25%" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Visión</h2>
-									<p>Establecer el liderazgo de Next Connect a nivel nacional expandiendo su cartera de clientes por todo el país, para situarse como una de las empresas referentes en desarrollo de software en Ecuador.</p>
-									<!-- <ul class="actions">
-										<li><a href="#" class="button">Learn more</a></li>
-									</ul> -->
-								</div>
-							</div>
-						</section>
-						<!-- <section>
-							<a href="#" class="image"><img src="images/data.jpg" alt="" data-position="25% 25%" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Importancia de la Información</h2>
-									<p>La actual “sociedad de la información”, conceptualiza a la información como el activo esencial de las organizaciones. La información constituye la base para la gestión del conocimiento y la toma de decisiones en todos los niveles de una organización, constituyéndose en el eslabón indispensable que une a todos los componentes de la misma.</p>
-									<ul class="actions">
-										<li><a href="#" class="button">Learn more</a></li>
-									</ul> 
-								</div>
-							</div>
-						</section> -->
-					</section>
+    <div>
+      <h3 class="text-white font-semibold mb-4">Contacto</h3>
+      <p class="mt-2">soporte@nx-connect.com</p>
+      <p>0995844878</p>
+      <p>Quito, Ecuador</p>
+    </div>
 
-				<!-- Two -->
-					<section id="two" class="wrapper style3 fade-up">
-						<div class="inner">
-							<h2>¿Que hacemos?</h2>
-							<p>La actual “sociedad de la información”, conceptualiza a la información como el activo esencial de las organizaciones. La información constituye la base para la gestión del conocimiento y la toma de decisiones en todos los niveles de una organización, constituyéndose en el eslabón indispensable que une a todos los componentes de la misma. Nuestro trabajo en nuestra pasión, buscamos darle al cliente una solución integral, flexible y escalable para ambientes corporativos.</p>
-							<div class="features">
-								<section>
-									<span class="icon major fa-cog"></span>
-									<h3>Gestor de contenido (CMS)</h3>
-									<p>Administra tu información de forma segura con accesos por roles administradores, editores, participantes y demas. Manten resplados de tu información periodicamente.</p>
-								</section>
+    <div>
+      <h3 class="text-white font-semibold mb-4">Social</h3>
+      <div class="flex gap-4">
+        <a href="#" class="hover:text-[#EAC54F]">Facebook</a>
+        <a href="#" class="hover:text-[#EAC54F]">GitHub</a>
+      </div>
+    </div>
 
-								<section>
-									<span class="icon major fa-desktop"></span>
-									<h3>Diseño de paginas Web</h3>
-									<p>En la actualidad es importante que tu organización tenga un lugar en internet, asi puedes ampliar tu cartera de clientes, ofrecer tus prductos y/o servicios, gestionar direcciones de correo electrónico.</p>
-								</section>
-								
+  </div>
 
-								<section>
-									<span class="icon major fa-chain"></span>
-									<h3>Tienda Virtual</h3>
-									<p>Controla tus compras, ventas y devoluciones en linea, inventario de productos, estadisticas: anuales, mensaulea, semanales, diarias facil de gestionar.</p>
-								</section>
+  <div class="text-center text-xs text-gray-600 mt-10">
+    © 2026 Next Connect. Todos los derechos reservados.
+  </div>
+</footer>
 
-								<section>
-									<span class="icon major fa-code"></span>
-									<h3>Herramientas SEO</h3>
-									<p>Has que tus clientes te encuentren mas rápido, mejora tu posición e imagen en la web.</p>
-								</section>
-
-								<section>
-									<span class="icon major fa-lock"></span>
-									<h3>Respaldo y mantenimiento Base de datos</h3>
-									<p>Asegúrate que tu información este segura con respaldos concurrentes, depura tu base de datos y elimina registro basura.</p>
-								</section>
-								
-								
-								
-								<section>
-									<span class="icon major fa-diamond"></span>
-									<h3>Desarrollo y Consultoria en Ruby on Rails</h3>
-									<p>Contamos con una amplia experiencia en el desarrollo de aplicaciones web con Ruby y el framework Ruby on Rails.</p>
-								</section>
-							</div>
-							<!-- <ul class="actions">
-								<li><a href="#" class="button">Learn more</a></li>
-							</ul> -->
-						</div>
-					</section>
-					<!-- Three -->
-<!-- 
-				
-					<section id="three" class="wrapper style2 spotlights">
-						<section>
-							<a href="#" class="image"><img src="images/pic01.jpg" alt="" data-position="center center" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Lavoratorios Ecua-american</h2>
-									<p>Desarrollo de cliente web</p>
-									
-								</div>
-							</div>
-						</section>
-						<section>
-							<a href="#" class="image"><img src="images/pic02.jpg" alt="" data-position="top center" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Feugiat consequat</h2>
-									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
-									<ul class="actions">
-										<li><a href="#" class="button">Learn more</a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-						<section>
-							<a href="#" class="image"><img src="images/pic03.jpg" alt="" data-position="25% 25%" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Ultricies aliquam</h2>
-									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
-									<ul class="actions">
-										<li><a href="#" class="button">Learn more</a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-					</section> -->
-
-				<!-- Four -->
-					<section id="four" class="wrapper style1 fade-up">
-						<div class="inner">
-							<h2>Contactos</h2>
-							<p>Si deseas recibir mas información de nuestros servicios o cotizar la idea que tienes en mente, a continuación ingresa tu petición en el siguiente formulario. Convertiremos tus ideas para mejorar tu empresa en realidad.</p>
-							<div class="split style1">
-								<section>
-									<form method="post" action="#">
-										<div class="field half first">
-											<label for="name">Nombre y Apellido</label>
-											<input type="text" name="name" id="name" />
-										</div>
-										<div class="field half">
-											<label for="email">Email</label>
-											<input type="text" name="email" id="email" />
-										</div>
-										<div class="field">
-											<label for="message">Mensaje</label>
-											<textarea name="message" id="message" rows="5"></textarea>
-										</div>
-										<ul class="actions">
-											<li><a href="#" class="button submit">Enviar</a></li>
-										</ul>
-									</form>
-								</section>
-								<section>
-									<div
-  class="fb-like"
-  data-share="true"
-  data-width="450"
-  data-show-faces="true">
-</div>
-									<ul class="contact">
-										<li>
-											<h3>Dirección</h3>
-											<span>Pichincha, Quito<br />
-											Ecuador</span>
-										</li>
-										<li>
-											<h3>Email</h3>
-											<a href="#">info@nx-connect.com</a>
-										</li>
-										<li>
-											<h3>Celular</h3>
-											<span>0995844878</span>
-										</li>
-										<li>
-											<h3>Social</h3>
-											<ul class="icons">
-												
-												<li><a href="#" class="fa-twitter"><span class="label">Twitter</span></a></li>
-												<li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>
-												<li><a href="#" class="fa-github"><span class="label">GitHub</span></a></li>
-												<!-- <li><a href="#" class="fa-instagram"><span class="label">Instagram</span></a></li>
-												<li><a href="#" class="fa-linkedin"><span class="label">LinkedIn</span></a></li> -->
-											</ul>
-										</li>
-									</ul>
-								</section>
-							</div>
-						</div>
-					</section>
-
-			</div>
-
-		<!-- Footer -->
-			<footer id="footer" class="wrapper style1-alt">
-				<div class="inner">
-					<ul class="menu">
-						<li>NEXT-CONNECT SAS - 2022</li>
-					</ul>
-				</div>
-			</footer>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+</body>
 </html>
